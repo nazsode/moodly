@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Header</title>
+    <link rel="stylesheet" href="../csss/chatPage.css">
+    <style>
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="logo-container">
+            <span class="logo-text">Moodly!</span>
+        </div>
+    </div>
+    <h1>Video Details</h1>
+
+    <div class="video-container">
+        <!-- Video File -->
+        <video id="videoPlayer" controls>
+            <source src="<%= chat.video.file %>" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <p><%- chat.comment %></p>
+
+        <!-- Custom Controls -->
+        <div class="custom-controls">
+            <button onclick="playVideo()"><%- chat.action %></button>
+        </div>
+
+        <!-- Copy Link Button -->
+        <div class="button">
+            <button onclick="copyPageUrl()">Copy Page URL
+                <i class="fa-solid fa-copy" style="margin-left: 8px;"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function playVideo() {
+            const video = document.getElementById('videoPlayer');
+            video.currentTime = 0;  // Reset the video to the start
+            video.play();           // Start playing the video
+        }
+
+        function copyPageUrl() {
+            navigator.clipboard.writeText(window.location.href)
+                .then(() => {
+                    alert('Page URL copied to clipboard!');
+                })
+                .catch(err => {
+                    alert('Failed to copy URL: ' + err);
+                });
+        }
+    </script>
+</body>
+</html>

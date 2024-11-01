@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Details</title>
+    <link rel="stylesheet" href="../csss/videoPage.css">
+    <style>
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="logo-container">
+            <span class="logo-text">Moodly!</span>
+        </div>
+    </div>
+    <h1>Video Details</h1>
+
+    <div class="video-container">
+        <!-- Video File -->
+        <video id="videoPlayer">
+            <source src="<%= video.file %>" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Custom Controls -->
+        <div class="custom-controls">
+            <button onclick="playVideo()">Play Video
+                <i class="fa-solid fa-play" style="margin-left: 8px;"></i>
+            </button>
+        </div>
+    </div>
+
+    <form action="/create-chat" method="POST">
+        <input type="hidden" name="id" value="<%- video._id %>">
+        <input type="text" name="comment" placeholder="Enter a comment">
+        <input type="text" name="action" placeholder="Enter an action">
+        <input type="submit" value="SUBMIT">
+    </form>
+
+    <script>
+        function playVideo() {
+            const video = document.getElementById('videoPlayer');
+            video.currentTime = 0;  // Reset the video to the start
+            video.play();           // Start playing the video
+        }
+    </script>
+</body>
+</html>

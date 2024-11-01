@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Gallery</title>
+    <link rel="stylesheet" href="../csss/mainPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <script>
+        function copyToClipboard(url) {
+            navigator.clipboard.writeText(url)
+                .then(() => {
+                    alert('URL copied to clipboard!');
+                })
+                .catch(err => {
+                    alert('Failed to copy URL: ' + err);
+                });
+        }
+    </script>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="logo-container">
+            <span class="logo-text">Moodly!</span>
+        </div>
+        <div class="nav-links">
+            <a href="/">Videos</a>
+            <a href="/chats">Chats</a>
+        </div>
+    </div>
+
+    <!-- Video Gallery Container -->
+    <div class="video-gallery">
+        <div class="video-container">
+            <h2>Video 1 Header</h2>
+            <video width="250" controls>
+                <source src="video1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-details">
+                <strong>Actions: </strong>Play
+            </div>
+            <div class="video-comments">
+                <strong>Comments: </strong>Nice video!
+            </div>
+            <div class="edit-video">
+                <a href="/posts/1">Edit Video</a>
+            </div>
+        </div>
+
+        <div class="video-container">
+            <h2>Video 2 Header</h2>
+            <video width="250" controls>
+                <source src="video2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-details">
+                <strong>Actions: </strong>Play
+            </div>
+            <div class="video-comments">
+                <strong>Comments: </strong>Interesting!
+            </div>
+            <div class="edit-video">
+                <a href="/posts/2">Edit Video</a>
+            </div>
+        </div>
+
+        <!-- Add more video-container divs here for other videos -->
+    </div>
+</body>
+</html>
